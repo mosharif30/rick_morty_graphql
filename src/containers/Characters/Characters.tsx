@@ -4,11 +4,10 @@ import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import getCharacters from "../../services/getCharacters";
 import { Box, Pagination, Stack, Typography } from "@mui/material";
 import { ICharacter } from "../../Interfaces";
-import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import Error from "../../components/Error/Error";
 
 const Characters = () => {
-  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   // Get Data
   const { data, status } = useQuery(["characters", page], getCharacters, {
@@ -28,7 +27,7 @@ const Characters = () => {
   }
 
   if (status === "error") {
-    return <div>Error!</div>;
+    return <Error />;
   }
 
   return (
@@ -46,28 +45,7 @@ const Characters = () => {
         }}
       >
         {data?.results.map((character: ICharacter) => (
-          <Box
-            key={character.id}
-            onClick={() => {
-              navigate(`/characters/${character.id}`);
-            }}
-            sx={{
-              width: { xs: "210px", md: "400px" },
-              cursor: "pointer",
-
-              backgroundColor: "rgb(59, 62, 67)",
-              "&:hover": {
-                background: "#546e7a",
-              },
-            }}
-            borderRadius={"0.5rem"}
-            overflow={"hidden"}
-            display={"flex"}
-            marginBottom={"1rem"}
-            marginRight={"1rem"}
-          >
-            <CharacterCard key={character.id} character={character} />
-          </Box>
+          <CharacterCard key={character.id} character={character} />
         ))}
         <Stack marginRight={"auto"} marginLeft={"auto"}>
           {/* Pagination component */}

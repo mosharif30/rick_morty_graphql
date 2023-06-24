@@ -36,14 +36,13 @@ const SingleCharacter = () => {
             marginBottom={"1rem"}
             justifyContent={"center"}
           >
-            <img width={300} src={data?.image} alt={data?.name} />{" "}
+            <img width={300} src={data?.image} alt={data?.name} />
             <Box fontSize={"1.25rem"} padding={"1rem"} color={"white"}>
               <Typography display={"inline"} variant="h5">
                 {data?.name}
               </Typography>{" "}
               <Typography variant="body1" marginBottom={"1rem"}>
                 {data?.status} - {data?.species}{" "}
-                {/* Character status and species */}
               </Typography>
               <Typography display={"inline"} variant="body1">
                 Last seen on:{" "}
@@ -64,7 +63,7 @@ const SingleCharacter = () => {
               </Typography>
               <Typography display={"inline"} variant="body1">
                 {data?.gender}
-              </Typography>{" "}
+              </Typography>
             </Box>
           </Box>
           <Box
