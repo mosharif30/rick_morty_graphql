@@ -6,7 +6,7 @@ This is a React TypeScript application that integrates with a GraphQL API. It al
 
 You can see the Deployed project Here :
 
-- `https://rick-morty.iran.liara.run/`
+- https://rick-morty.iran.liara.run/
 
 ## Prerequisites
 
