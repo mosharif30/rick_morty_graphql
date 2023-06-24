@@ -1,6 +1,6 @@
 # React TypeScript App with GraphQL API Integration
 
-This is a React TypeScript application that integrates with a GraphQL API. It allows you to perform certain actions using the API and displays the results in a user interface.
+This is a React TypeScript application that integrates with a GraphQL API. This software shows the characters of the Rick and Morty series on separate pages
 
 ## Deployed project
 
