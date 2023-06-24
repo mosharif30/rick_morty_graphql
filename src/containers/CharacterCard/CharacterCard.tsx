@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import { ICharacter } from "../Interfaces";
+import { ICharacter } from "../../Interfaces";
 
 // Component to display a single character
-export default function Character({ character }: { character: ICharacter }) {
+export default function CharacterCard({ character }: { character: ICharacter }) {
   return (
     <>
       <img width={200} src={character.image} alt={character.name} />

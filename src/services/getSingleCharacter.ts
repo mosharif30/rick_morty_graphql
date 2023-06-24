@@ -1,8 +1,6 @@
 import { gql, GraphQLClient } from "graphql-request";
 import { ICharacter } from "../Interfaces";
-
 const graphqlAPI = "https://rickandmortyapi.com/graphql";
-
 const query = gql`
   query myq($id: [ID!]!) {
     charactersByIds(ids: $id) {
@@ -11,6 +9,8 @@ const query = gql`
       status
       image
       species
+      type
+      gender
       location {
         name
       }
@@ -18,18 +18,23 @@ const query = gql`
   }
 `;
 
-const client = new GraphQLClient(graphqlAPI);
-
-// Retrieves characters from the GraphQL API based on the provided query key
 const getSingleCharacter = async ({
   queryKey,
 }: {
   queryKey: (string | undefined)[];
 }): Promise<ICharacter> => {
   try {
+    if (!queryKey || !queryKey[1]) {
+      throw new Error(
+        "Invalid queryKey. Expected an array with ID as the second element."
+      );
+    }
+
     const variables = {
-      id: queryKey[1], // Extract the page number from the query key
+      id: queryKey[1],
     };
+
+    const client = new GraphQLClient(graphqlAPI);
 
     const { charactersByIds } = await client.request<{
       charactersByIds: ICharacter[];
@@ -37,8 +42,8 @@ const getSingleCharacter = async ({
 
     return charactersByIds[0];
   } catch (error) {
-    console.error("Error fetching characters:", error);
-    throw error;
+    console.error("Error fetching character:", error);
+    throw new Error("Failed to fetch character.");
   }
 };
 

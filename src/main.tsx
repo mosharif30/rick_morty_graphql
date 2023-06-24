@@ -1,22 +1,23 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SingleCharacter from "./components/SingleCharacter";
-import Characters from "./components/Characters.tsx";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import SingleCharacter from "./containers/SingleCharacter/SingleCharacter.tsx";
+import Characters from "./containers/Characters/Characters.tsx";
 import { QueryClient, QueryClientProvider } from "react-query";
-import "./App.css";
+import React from "react";
 
 const queryClient = new QueryClient();
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Characters />,
-  },
-  { path: "/characters/:id", element: <SingleCharacter /> },
-]);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-  </QueryClientProvider>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Characters />} />
+          <Route path="/characters" element={<Navigate to="/" />} />
+          <Route path="/characters/:id" element={<SingleCharacter />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
+  </React.StrictMode>
 );

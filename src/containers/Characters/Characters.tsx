@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-import Character from "./Character";
-import getCharacters from "../services/getCharacters";
+import CharacterCard from "../CharacterCard/CharacterCard";
+import getCharacters from "../../services/getCharacters";
 import { Box, Pagination, Stack, Typography } from "@mui/material";
-import { ICharacter } from "../Interfaces";
+import { ICharacter } from "../../Interfaces";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const Characters = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Characters = () => {
   };
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (status === "error") {
@@ -39,15 +40,17 @@ const Characters = () => {
       <Box display="flex" flexWrap="wrap" p={5}>
         {data?.results.map((character: ICharacter) => (
           <Box
+            key={character.id}
             onClick={() => {
               navigate(`/characters/${character.id}`);
             }}
             sx={{
               width: { xs: "90%", md: "45%" },
+              cursor: "pointer",
               flexDirection: { xs: "column", sm: "row" },
               backgroundColor: "rgb(59, 62, 67)",
               "&:hover": {
-                background: "rgb(50, 62, 67)",
+                background: "#546e7a",
               },
             }}
             borderRadius={"0.5rem"}
@@ -56,12 +59,10 @@ const Characters = () => {
             marginBottom={"1rem"}
             marginRight={"1rem"}
           >
-            <Character key={character.id} character={character} />
+            <CharacterCard key={character.id} character={character} />
           </Box>
         ))}
-        <Stack spacing={2}>
-          {/* Display current page number */}
-          <Typography color="white">Page: {page}</Typography>
+        <Stack marginRight={"auto"} marginLeft={"auto"}>
           {/* Pagination component */}
           <Pagination
             sx={{ button: { color: "#ffffff" }, div: { color: "#ffffff" } }}
