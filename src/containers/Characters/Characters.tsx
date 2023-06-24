@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-import CharacterCard from "../CharacterCard/CharacterCard";
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import getCharacters from "../../services/getCharacters";
 import { Box, Pagination, Stack, Typography } from "@mui/material";
 import { ICharacter } from "../../Interfaces";
 import { useNavigate } from "react-router-dom";
-import Loading from "../Loading/Loading";
+import Loading from "../../components/Loading/Loading";
 
 const Characters = () => {
   const navigate = useNavigate();
