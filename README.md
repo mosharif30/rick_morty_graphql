@@ -40,6 +40,14 @@ This project uses Jest for unit testing. To run the tests, use the following com
 
 - `yarn test`
 
+View and interpret the generated coverage reports.
+
+Test coverage is a metric used to measure the effectiveness of your tests by determining the percentage of your code that is executed during testing. Istanbul is a popular JavaScript code coverage tool that provides detailed reports on how well your tests exercise your codebase.
+
+- **Statement coverage**: The percentage of code statements that are executed during testing.
+- **Branch coverage**: The percentage of code branches (if statements, loops, etc.) that are exercised.
+- **Line coverage**: The percentage of lines of code executed.
+
 ## Folder Structure
 
 The project's folder structure is organized as follows:

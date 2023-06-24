@@ -1,9 +1,10 @@
 import { Box, Button, Divider, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import getSingleCharacter from "../../services/getSingleCharacter";
 import { useQuery } from "react-query";
 import Loading from "../../components/Loading/Loading";
 import Error from "../../components/Error/Error";
+import getSingleCharacter from "../../services/getSingleCharacter";
+
 const SingleCharacter = () => {
   const { id } = useParams();
   const navigate = useNavigate();

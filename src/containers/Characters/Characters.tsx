@@ -37,7 +37,14 @@ const Characters = () => {
       <Typography p={3} color="white">
         Page is {page}
       </Typography>
-      <Box display="flex" flexWrap="wrap" p={5}>
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        p={5}
+        sx={{
+          justifyContent: "center",
+        }}
+      >
         {data?.results.map((character: ICharacter) => (
           <Box
             key={character.id}
@@ -45,9 +52,9 @@ const Characters = () => {
               navigate(`/characters/${character.id}`);
             }}
             sx={{
-              width: { xs: "90%", md: "45%" },
+              width: { xs: "210px", md: "400px" },
               cursor: "pointer",
-              flexDirection: { xs: "column", sm: "row" },
+
               backgroundColor: "rgb(59, 62, 67)",
               "&:hover": {
                 background: "#546e7a",
