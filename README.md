@@ -12,12 +12,13 @@ Before running the application, ensure that the following software is installed 
 ## Installation
 
 1. Clone the repository to your local machine:
-   git clone https://github.com/mosharif30/rick_morty_graphql
+
+   - `git clone https://github.com/mosharif30/rick_morty_graphql`
 
 2. Change into the project's directory:
-   cd rick_morty_graphql
+   - `cd rick_morty_graphql`
 3. Install the dependencies:
-   yarn install
+   - `yarn install`
 
 ## Usage
 
