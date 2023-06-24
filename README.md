@@ -2,6 +2,12 @@
 
 This is a React TypeScript application that integrates with a GraphQL API. It allows you to perform certain actions using the API and displays the results in a user interface.
 
+## Deployed project
+
+You can see the Deployed project Here :
+
+- `https://rick-morty.iran.liara.run/`
+
 ## Prerequisites
 
 Before running the application, ensure that the following software is installed on your machine:
@@ -23,14 +29,16 @@ Before running the application, ensure that the following software is installed 
 ## Usage
 
 To start the development server, run the following command:
-yarn dev
+
+- `yarn dev`
 
 Open your browser and navigate to http://127.0.0.1:5173/ to view the application.
 
 ## Testing
 
 This project uses Jest for unit testing. To run the tests, use the following command:
-yarn test
+
+- `yarn test`
 
 ## Folder Structure
 
